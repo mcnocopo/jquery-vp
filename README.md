@@ -9,8 +9,7 @@ Include script *after* the jQuery library (unless you are packaging scripts some
 
 ```html <script src="/path/to/jquery.vp.js"></script>```
 
-**Do not include the script directly from GitHub (http://raw.github.com/...).** The file is being served as text/plain and as such being blocked
-in Internet Explorer on Windows 7 for instance (because of the wrong MIME type). Bottom line: GitHub is not a CDN.
+**Do not include the script directly from GitHub (http://raw.github.com/...).** GitHub is not a CDN.
 
 ## Usage
 
