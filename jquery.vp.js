@@ -20,16 +20,18 @@
 				var t = bounding.top + h;
 				$(window)
 					.load(function () {
-					if (b < 0 && cp != "below") {
-						cp = "below";
-						if (o.triggerOnLoad) base.below();
-					} else if (t < 0 && cp != "above") {
-						cp = "above";
-						if (o.triggerOnLoad) base.above();
-					} else {
-						cp = "view";
-						if (o.triggerOnLoad) base.view();
-					}
+                        if (o.triggerOnLoad) {
+                            if (b < 0 && cp != "below") {
+                                cp = "below";
+                                base.below();
+                            } else if (t < 0 && cp != "above") {
+                                cp = "above";
+                                base.above();
+                            } else {
+                                cp = "view";
+                                base.view();
+                            }
+                        }
 				})
 					.scroll(function () {
 					bounding = base.getBoundingClientRect();
