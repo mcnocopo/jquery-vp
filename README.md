@@ -38,6 +38,27 @@ $("#element").on("aboveViewPort belowViewPort", function () {
 	alert("out of view port");
 });
 ```
+The plugin has also e convenient method called `scrollInView` for brin an element in the viewport.
+An example would be:
+
+```javascript
+$("#btn").on("click",function() {
+    $("#element").vp({
+        method:"scrollInView",
+        offset: "center",
+        speed: 1000,
+        callback: function() {
+            $("#element").css("background-color","green");
+        }
+    });
+})
+```
+There are three options
+
+* `offset`: could be center (as string) or any integer number which defines how much farway from the top the element should stop[default:0] (int)
+* `speed`: the speed of the animation in milliseconds[default:100] (int)
+* `easing`: the type of animation as defined in the animation method of jQuery[default:swing] (string)
+
 
 See it in action and hack it [here](http://jsfiddle.net/pmcalabrese/pumLm/4/)
 

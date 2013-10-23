@@ -9,9 +9,27 @@
 			var base = el;
 			var	$base = $(el);
 			var o = {
+                method : options.method || "",
 				triggerOnLoad: options.triggerOnLoad || false,
-				offset: options.offset || 0
+				offset: options.offset || 0,
+                speed: options.speed || 100,
+                easing: options.easing || 'swing'
 			};
+            if (o.method === "scrollInView") {
+                var s = base.getBoundingClientRect();
+                if(typeof o.offset === "string") {
+                    if(o.offset === "center") {
+                        o.offset = window.innerHeight/2-(s.bottom - s.top)/2;
+                    }
+                }
+                var es = s.top-o.offset;
+                $('body').animate({scrollTop:es}, o.speed, o.easing, function() {
+                    if (typeof options.callback == "function") {
+                        options.callback(es);
+                    }
+                });
+                return;
+            }
 			base.init = function () {
 				var cp = "";
 				var bounding = base.getBoundingClientRect();
